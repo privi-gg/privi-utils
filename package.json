@@ -2,14 +2,15 @@
   "name": "privi-utils",
   "version": "1.0.0",
   "description": "Common utilities for privi projects",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "ts-mocha tests/**/*.test.ts",
     "lint": "eslint \"**\\*.ts\""
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
