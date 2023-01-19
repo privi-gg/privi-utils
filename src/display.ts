@@ -10,8 +10,10 @@ export const formatEtherRounded = (value: BigNumberish, roundTo: number = 4) => 
   return formatUnitsRounded(value, 18, roundTo);
 };
 
-export const abbreviateHex = (hex: string, length: number = 9) => {
+export const displayHex = (hex: string, length: number = 9) => {
   if (!hex) return '';
+  if (hex.length <= length) return hex;
+
   const startLen = Math.ceil(length / 2) + 1;
   const endLen = Math.floor(length / 2) - 1;
 
