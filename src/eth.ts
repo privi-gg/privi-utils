@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import { type BigNumberish } from 'ethers';
+import { NestedArrayOf, NestedObjectOf } from './types';
 const { BigNumber, utils } = ethers;
 
 export const BN = BigNumber.from;
@@ -47,34 +48,38 @@ export const abbreviateHex = (hex: string, length: number = 9) => {
   return hex.slice(0, startLen) + '...' + hex.slice(-endLen);
 };
 
-export const stringifyBigInts = (v: BigNumberish | any): any => {
+export const stringifyBNs = (
+  v: BigNumberish | NestedArrayOf<BigNumberish> | NestedObjectOf<BigNumberish>,
+): string | NestedArrayOf<string> | NestedObjectOf<string> => {
   if (BigNumber.isBigNumber(v)) {
     return v.toString();
   } else if (Array.isArray(v)) {
-    return v.map(stringifyBigInts);
+    return v.map(stringifyBNs);
   } else if (typeof v === 'object') {
-    const res: any = {};
+    const res: NestedObjectOf<string> = {};
     for (let key in v) {
-      res[key] = stringifyBigInts(v[key]);
+      res[key] = stringifyBNs(v[key]);
     }
     return res;
   }
-  return BigNumber.from(v).toString();
+  return BN(v).toString();
 };
 
-export const hexifyBigInts = (v: BigNumberish | any): any => {
+export const hexifyBNs = (
+  v: BigNumberish | NestedArrayOf<BigNumberish> | NestedObjectOf<BigNumberish>,
+): string | NestedArrayOf<string> | NestedObjectOf<string> => {
   if (BigNumber.isBigNumber(v)) {
     return v.toHexString();
   } else if (Array.isArray(v)) {
-    return v.map(hexifyBigInts);
+    return v.map(hexifyBNs);
   } else if (typeof v === 'object') {
-    const res: any = {};
+    const res: NestedObjectOf<string> = {};
     for (let key in v) {
-      res[key] = hexifyBigInts(v[key]);
+      res[key] = hexifyBNs(v[key]);
     }
     return res;
   }
-  return BigNumber.from(v).toHexString();
+  return BN(v).toHexString();
 };
 
 export const isValidAddress = (address?: string) => {
