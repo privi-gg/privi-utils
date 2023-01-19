@@ -10,7 +10,7 @@ export const formatEtherRounded = (value: BigNumberish, roundTo: number = 4) => 
   return formatUnitsRounded(value, 18, roundTo);
 };
 
-export const displayHex = (hex: string, length: number = 9) => {
+export const formatDisplayHex = (hex: string, length: number = 9) => {
   if (!hex) return '';
   if (hex.length <= length) return hex;
 
@@ -20,10 +20,10 @@ export const displayHex = (hex: string, length: number = 9) => {
   return hex.slice(0, startLen) + '...' + hex.slice(-endLen);
 };
 
-export const displayBalance = (value: BigNumberish, decimals: number) => {
+export const formatDisplayAmount = (value: BigNumberish, decimals: number) => {
   return formatUnitsRounded(value, decimals, 3);
 };
 
-export const displayAddress = (address: string) => {
+export const formatDisplayAddress = (address: string) => {
   return address.slice(0, 6) + '...' + address.slice(-4);
 };
