@@ -10,15 +10,6 @@ export const formatUnits = utils.formatUnits;
 export const formatEther = utils.formatEther;
 export const toChecksumAddress = utils.getAddress;
 
-export const formatUnitsRounded = (value: BigNumberish, decimals: number, roundTo: number = 4) => {
-  const formatted = formatUnits(value, decimals);
-  return Number(formatted).toFixed(roundTo);
-};
-
-export const formatEtherRounded = (value: BigNumberish, roundTo: number = 4) => {
-  return formatUnitsRounded(value, 18, roundTo);
-};
-
 export const equals = (value: BigNumberish, otherValue: BigNumberish) => {
   return BN(value).eq(otherValue);
 };
@@ -36,16 +27,8 @@ export const toFixedHex = (n: BigNumberish, nBytes: number = 32) => {
 
 export const randomBN = (nBytes: number = 32) => BN(utils.randomBytes(nBytes));
 
-export const randomHex = (nBytes: number) => {
+export const randomHex = (nBytes: number = 32) => {
   return utils.hexlify(utils.randomBytes(nBytes));
-};
-
-export const abbreviateHex = (hex: string, length: number = 9) => {
-  if (!hex) return '';
-  const startLen = Math.ceil(length / 2) + 1;
-  const endLen = Math.floor(length / 2) - 1;
-
-  return hex.slice(0, startLen) + '...' + hex.slice(-endLen);
 };
 
 export const stringifyBNs = (
