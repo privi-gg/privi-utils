@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "test": "ts-mocha tests/**/*.test.ts",
-    "lint": "eslint \"**\\*.ts\""
+    "lint": "eslint \"**\\*.ts\"",
+    "postinstall": "yarn build"
   },
   "author": "",
   "license": "MIT",
