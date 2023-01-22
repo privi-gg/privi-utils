@@ -1,30 +1,4 @@
-import { mainnet, goerli, polygon, polygonMumbai, gnosis, Chain } from '@wagmi/core/chains';
-
-export const gnosisChiado: Chain = {
-  id: 10200,
-  network: 'chiado',
-  name: 'Chiado',
-  nativeCurrency: { name: 'Chiado xDai', symbol: 'xDAI', decimals: 18 },
-  rpcUrls: {
-    default: {
-      http: ['https://rpc.chiadochain.net'],
-    },
-    public: {
-      http: ['https://rpc.chiadochain.net'],
-    },
-  },
-  blockExplorers: {
-    etherscan: {
-      name: 'Blockscout',
-      url: 'https://blockscout.chiadochain.net',
-    },
-    default: {
-      name: 'Blockscout',
-      url: 'https://blockscout.chiadochain.net',
-    },
-  },
-  testnet: true,
-};
+import { mainnet, goerli, polygon, polygonMumbai, gnosis, gnosisChiado } from '@wagmi/chains';
 
 export const chains = {
   MAINNET: mainnet.id,
