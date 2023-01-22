@@ -1,5 +1,4 @@
-import { BytesLike, ethers } from 'ethers';
-import { type BigNumberish } from 'ethers';
+import { BytesLike, ethers, type BigNumberish } from 'ethers';
 //@ts-ignore
 import { poseidon } from 'xcircomlib';
 //@ts-ignore
