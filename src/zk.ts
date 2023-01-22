@@ -2,7 +2,7 @@ import { BytesLike, ethers, type BigNumberish } from 'ethers';
 //@ts-ignore
 import { poseidon } from 'xcircomlib';
 //@ts-ignore
-import genContract from 'xcircomlib/src/poseidon_gencontract.js';
+const genContract = require('xcircomlib/src/poseidon_gencontract.js');
 
 const { BigNumber } = ethers;
 
